@@ -678,10 +678,10 @@
 
     
 
-    <h4 class="name" id="removeIndex"><span class="type-signature"></span>removeIndex<span class="signature">(index)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="groupByStep"><span class="type-signature"></span>groupByStep<span class="signature">(step)</span><span class="type-signature"> &rarr; {Array}</span></h4>
 
     
-    <p class="summary">Deletes value(s) from the specified index or list of indices.</p>
+    <p class="summary">Groups the values of the array by step; groups array values into groups of size step.</p>
     
 
 
@@ -693,7 +693,171 @@
 
 
     <h5>This:</h5>
-    <ul><li>current</li></ul>
+    <ul><li>{Array}</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>step</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">size of group</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>1.0.5</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line159">line 159</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+a.groupByStep(3)
+// [ [1, 2, 3], [4, 5, 6], [7, 8, 9], [10] ]
+
+var b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    c = b.groupByStep(2)
+// [ [1, 2], [3, 4], [5, 6], [7, 8], [9, 10] ]</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="removeIndex"><span class="type-signature"></span>removeIndex<span class="signature">(index)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+    <p class="summary">Deletes value(s) from the specified index or list of indices/</p>
+    
+
+
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>{Array}</li></ul>
 
 
 
@@ -785,7 +949,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line34">line 34</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line40">line 40</a>
     </li></ul></dd>
     
 
@@ -820,6 +984,24 @@
     
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
     <h5>Example</h5>
@@ -830,7 +1012,11 @@ a.removeIndex(2)
 
 var b = [1, 2, 3, 4, 5];
 b.removeIndex([0, 1, 2]);
-// [ 4, 5 ]</code></pre>
+// [ 4, 5 ]
+
+var c = [1, 2, 3, 4, 5],
+    d = c.removeIndex(2);
+// [ 1, 2, 4, 5 ]</code></pre>
 
 
 
@@ -839,7 +1025,7 @@ b.removeIndex([0, 1, 2]);
 
     
 
-    <h4 class="name" id="removeValue"><span class="type-signature"></span>removeValue<span class="signature">(value)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="removeValue"><span class="type-signature"></span>removeValue<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array}</span></h4>
 
     
     <p class="summary">Deletes all specified value(s) in an array.</p>
@@ -854,7 +1040,7 @@ b.removeIndex([0, 1, 2]);
 
 
     <h5>This:</h5>
-    <ul><li>current</li></ul>
+    <ul><li>{Array}</li></ul>
 
 
 
@@ -946,7 +1132,7 @@ b.removeIndex([0, 1, 2]);
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line85">line 85</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line99">line 99</a>
     </li></ul></dd>
     
 
@@ -981,6 +1167,24 @@ b.removeIndex([0, 1, 2]);
     
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
     <h5>Example</h5>
@@ -991,7 +1195,11 @@ a.removeValue(3);
 
 var b = [1, 2, 3, 4, 5];
 b.removeValue([2, 3, 5]);
-// [ 1, 4 ]</code></pre>
+// [ 1, 4 ]
+
+var c = [1, 2, 3, 4, 5],
+    d = c.removeValue(3);
+// [ 1, 2, 4, 5 ]</code></pre>
 
 
 
@@ -1011,13 +1219,13 @@ b.removeValue([2, 3, 5]);
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#_partition">_partition</a></li><li><a href="global.html#_quicksort">_quicksort</a></li><li><a href="global.html#_swap">_swap</a></li><li><a href="global.html#removeIndex">removeIndex</a></li><li><a href="global.html#removeValue">removeValue</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#_partition">_partition</a></li><li><a href="global.html#_quicksort">_quicksort</a></li><li><a href="global.html#_swap">_swap</a></li><li><a href="global.html#groupByStep">groupByStep</a></li><li><a href="global.html#removeIndex">removeIndex</a></li><li><a href="global.html#removeValue">removeValue</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Apr 04 2016 23:31:02 GMT-0500 (CDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Apr 05 2016 22:27:42 GMT-0500 (CDT)
 </footer>
 
 <script> prettyPrint(); </script>
