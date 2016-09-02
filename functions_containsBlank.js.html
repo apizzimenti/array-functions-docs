@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>index.js - Documentation</title>
+    <title>functions/containsBlank.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -28,7 +28,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">index.js</h1>
+    <h1 class="page-title">functions/containsBlank.js</h1>
     
 
     
@@ -39,31 +39,41 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Created by apizzimenti on 9/1/16.
+ * Created by apizzimenti on 9/2/16.
  */
-
 
 /**
  * @author Anthony Pizzimenti
  *
- * @desc Parent object for all funk methods. Each time a method is run, funk keeps a reference to the last array it was
- * fed before it was modified.
+ * @desc Intakes the provided array, sorts it, and checks its end indices for blank, undefined, or null members.
  *
- * @property lastArray {Array} A copy of the last array modified by funk.
- * @property throwError {function} Throws an error if any of the first function parameters aren't arrays, since strings
- * can also be spliced.
+ * @param a {Array} Array to be searched.
  *
- * @type {{}}
- * @global
+ * @returns {boolean} Does the array contain any blank, undefined, or null members?
+ *
+ * @memberOf f
+ *
+ * @this f
  */
 
-var f = {
-    lastArray: [],
-    throwError: function (a) {
-        if (!Array.isArray(a)) {
-            throw new Error("First parameter is not of type Array.");
-        }
+f.containsBlank = function (a) {
+    
+    this.throwError(a);
+    this.lastArray = a.slice();
+    
+    var blank = false;
+    
+    if (a.length &lt; 23) {
+        a.sort();
+    } else {
+        a = quicksort(a, 0, a.length - 1);
     }
+    
+    if (a[0] === "" || a[a.length - 1] === null || a[a.length - 1] === undefined) {
+        blank = true;
+    }
+    
+    return blank;
 };
 </code></pre>
         </article>
