@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="f.html">f</a><ul class='methods'><li data-type='method'><a href="f.html#.containsBlank">containsBlank</a></li><li data-type='method'><a href="f.html#.groupBy">groupBy</a></li><li data-type='method'><a href="f.html#.hasType">hasType</a></li><li data-type='method'><a href="f.html#.removeIndex">removeIndex</a></li><li data-type='method'><a href="f.html#.removeValue">removeValue</a></li><li data-type='method'><a href="f.html#.sList">sList</a></li></ul></li><li><a href="Node.html">Node</a></li><li><a href="sList.html">sList</a><ul class='methods'><li data-type='method'><a href="sList.html#add">add</a></li><li data-type='method'><a href="sList.html#addToHead">addToHead</a></li><li data-type='method'><a href="sList.html#addToTail">addToTail</a></li><li data-type='method'><a href="sList.html#remove">remove</a></li><li data-type='method'><a href="sList.html#retrieve">retrieve</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#_partition">_partition</a></li><li><a href="global.html#_swap">_swap</a></li><li><a href="global.html#dList">dList</a></li><li><a href="global.html#quicksort">quicksort</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="dList.html">dList</a><ul class='methods'><li data-type='method'><a href="dList.html#add">add</a></li><li data-type='method'><a href="dList.html#addToHead">addToHead</a></li><li data-type='method'><a href="dList.html#addToTail">addToTail</a></li><li data-type='method'><a href="dList.html#remove">remove</a></li><li data-type='method'><a href="dList.html#retrieve">retrieve</a></li><li data-type='method'><a href="dList.html#toArray">toArray</a></li></ul></li><li><a href="f.html">f</a><ul class='methods'><li data-type='method'><a href="f.html#.containsBlank">containsBlank</a></li><li data-type='method'><a href="f.html#.dList">dList</a></li><li data-type='method'><a href="f.html#.groupBy">groupBy</a></li><li data-type='method'><a href="f.html#.hasType">hasType</a></li><li data-type='method'><a href="f.html#.removeIndex">removeIndex</a></li><li data-type='method'><a href="f.html#.removeValue">removeValue</a></li><li data-type='method'><a href="f.html#.sList">sList</a></li></ul></li><li><a href="Node.html">Node</a></li><li><a href="sList.html">sList</a><ul class='methods'><li data-type='method'><a href="sList.html#add">add</a></li><li data-type='method'><a href="sList.html#addToHead">addToHead</a></li><li data-type='method'><a href="sList.html#addToTail">addToTail</a></li><li data-type='method'><a href="sList.html#remove">remove</a></li><li data-type='method'><a href="sList.html#retrieve">retrieve</a></li><li data-type='method'><a href="sList.html#toArray">toArray</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#_partition">_partition</a></li><li><a href="global.html#_swap">_swap</a></li><li><a href="global.html#quicksort">quicksort</a></li></ul>
 </nav>
 
 <div id="main">
@@ -42,16 +42,40 @@
  * Created by apizzimenti on 9/2/16.
  */
 
+/**
+ * @author Anthony Pizzimenti
+ *
+ * @desc A doubly linked list.
+ *
+ * @property _head {Node} The Node object at the head of the list.
+ * @property _length {Number} The number of linked Node objects.
+ *
+ * @class {Object} Doubly linked list.
+ * @this dList
+ * @constructor
+ */
+
 function dList  () {
     this._head = null;
     this._length = 0;
-    this.currentNode = null;
 }
+
+/**
+ * @author Anthony Pizzimenti
+ *
+ * @desc Adds a new Node to the head of the dList.
+ *
+ * @param value {*} Value to be assigned to the new Node.
+ *
+ * @this dList
+ *
+ * @returns {Node}
+ */
 
 dList.prototype.addToHead = function (value) {
     
     var node = new Node(value),
-        currentNode = this.currentNode,
+        currentNode = this._head,
         lastNode;
     
     if (!currentNode) {
@@ -60,10 +84,178 @@ dList.prototype.addToHead = function (value) {
         return node;
     }
     
-    while (currentNode.next) {
-        
+    node.next = currentNode;
+    this._head = node;
+    currentNode.previous = node;
+    
+    this._length++;
+    
+    return node;
+};
+
+/**
+ * @author Anthony Pizzimenti
+ *
+ * @desc Adds a new Node to the tail of the dList.
+ *
+ * @param value {*} Value to be assigned to the new Node.
+ *
+ * @this dList
+ *
+ * @returns {Node}
+ */
+
+dList.prototype.addToTail = function (value) {
+    
+    var node = new Node(value),
+        refNode = this.retrieve(this._length - 1);
+    
+    if (!refNode) {
+        this._head = node;
+        this._length++;
+        return node;
     }
-}
+    
+    refNode.next = node;
+    node.previous = refNode;
+    
+    this._length++;
+    
+    return node;
+};
+
+/**
+ * @author Anthony Pizzimenti
+ *
+ * @desc Adds a new Node at the specified position.
+ *
+ * @param value {*} Value to be assigned to the new Node.
+ * @param position {Number} Position in the linked list.
+ *
+ * @this dList
+ *
+ * @returns {Node}
+ */
+
+dList.prototype.add = function (value, position) {
+    
+    if (position > this._length) {
+        throw new Error("Index out of range.");
+    } else if (position === 0) {
+        return this.addToHead(value);
+    } else if (position === this._length - 1) {
+        return this.addToTail(value);
+    }
+    
+    var node = new Node(value),
+        lastNode = this.retrieve(position - 1),
+        nextNode = this.retrieve(position + 1);
+    
+    lastNode.next = node;
+    nextNode.previous = node;
+    
+    node.previous = lastNode;
+    node.next = nextNode;
+    
+    this._length++;
+    
+    return node;
+};
+
+/**
+ * @author Anthony Pizzimenti
+ *
+ * @desc Removes the Node at the specified position.
+ *
+ * @param position {Number} Position from which the Node will be removed.
+ *
+ * @this dList
+ */
+
+dList.prototype.remove = function (position) {
+    
+    var currentNode = this._head,
+        remNode,
+        lastNode,
+        nextNode;
+    
+    if (position > this._length - 1) {
+        throw new Error("Index out of range.");
+    }
+    
+    if (position > 0 &amp;&amp; position &lt; this._length - 1) {
+        
+        lastNode = this.retrieve(position - 1);
+        nextNode = this.retrieve(position + 1);
+        
+        remNode = null;
+        lastNode.next = nextNode;
+        nextNode.previous = lastNode;
+        
+    } else if (position === 0) {
+        
+        this._head = currentNode.next;
+        currentNode = null;
+        
+    } else if (position === this._length - 1) {
+        
+        currentNode = this.retrieve(position - 1);
+        currentNode.next = null;
+    }
+    
+    this._length--;
+};
+
+/**
+ * @author Anthony Pizzimenti
+ *
+ * @desc Retrieves the Node at the specified position.
+ *
+ * @param position {Number} Position to retrieve the Node from.
+ *
+ * @this dList
+ *
+ * @returns Node
+ */
+
+dList.prototype.retrieve = function (position) {
+    
+    var currentNode = this._head,
+        i = 0;
+    
+    if (position > this._length || position &lt; 0) {
+        throw new Error("Index out of range.");
+    }
+    
+    while (i &lt; position) {
+        currentNode = currentNode.next;
+        i++;
+    }
+    
+    return currentNode;
+};
+
+/**
+ * @author Anthony Pizzimenti
+ *
+ * @desc Transforms linked list into an array.
+ * @returns {Array}
+ */
+
+dList.prototype.toArray = function () {
+    
+    var a = [],
+        node = this._head,
+        i = 0;
+    
+    while (i &lt; this._length) {
+        a.push(node.value);
+        node = node.next;
+        i++;
+    }
+    
+    return a;
+};
 </code></pre>
         </article>
     </section>
@@ -76,7 +268,7 @@ dList.prototype.addToHead = function (value) {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Sep 02 2016 23:33:17 GMT-0500 (CDT) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Sep 03 2016 01:20:41 GMT-0500 (CDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="f.html">f</a><ul class='methods'><li data-type='method'><a href="f.html#.containsBlank">containsBlank</a></li><li data-type='method'><a href="f.html#.groupBy">groupBy</a></li><li data-type='method'><a href="f.html#.hasType">hasType</a></li><li data-type='method'><a href="f.html#.removeIndex">removeIndex</a></li><li data-type='method'><a href="f.html#.removeValue">removeValue</a></li><li data-type='method'><a href="f.html#.sList">sList</a></li></ul></li><li><a href="Node.html">Node</a></li><li><a href="sList.html">sList</a><ul class='methods'><li data-type='method'><a href="sList.html#add">add</a></li><li data-type='method'><a href="sList.html#addToHead">addToHead</a></li><li data-type='method'><a href="sList.html#addToTail">addToTail</a></li><li data-type='method'><a href="sList.html#remove">remove</a></li><li data-type='method'><a href="sList.html#retrieve">retrieve</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#_partition">_partition</a></li><li><a href="global.html#_swap">_swap</a></li><li><a href="global.html#dList">dList</a></li><li><a href="global.html#quicksort">quicksort</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="dList.html">dList</a><ul class='methods'><li data-type='method'><a href="dList.html#add">add</a></li><li data-type='method'><a href="dList.html#addToHead">addToHead</a></li><li data-type='method'><a href="dList.html#addToTail">addToTail</a></li><li data-type='method'><a href="dList.html#remove">remove</a></li><li data-type='method'><a href="dList.html#retrieve">retrieve</a></li><li data-type='method'><a href="dList.html#toArray">toArray</a></li></ul></li><li><a href="f.html">f</a><ul class='methods'><li data-type='method'><a href="f.html#.containsBlank">containsBlank</a></li><li data-type='method'><a href="f.html#.dList">dList</a></li><li data-type='method'><a href="f.html#.groupBy">groupBy</a></li><li data-type='method'><a href="f.html#.hasType">hasType</a></li><li data-type='method'><a href="f.html#.removeIndex">removeIndex</a></li><li data-type='method'><a href="f.html#.removeValue">removeValue</a></li><li data-type='method'><a href="f.html#.sList">sList</a></li></ul></li><li><a href="Node.html">Node</a></li><li><a href="sList.html">sList</a><ul class='methods'><li data-type='method'><a href="sList.html#add">add</a></li><li data-type='method'><a href="sList.html#addToHead">addToHead</a></li><li data-type='method'><a href="sList.html#addToTail">addToTail</a></li><li data-type='method'><a href="sList.html#remove">remove</a></li><li data-type='method'><a href="sList.html#retrieve">retrieve</a></li><li data-type='method'><a href="sList.html#toArray">toArray</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#_partition">_partition</a></li><li><a href="global.html#_swap">_swap</a></li><li><a href="global.html#quicksort">quicksort</a></li></ul>
 </nav>
 
 <div id="main">
@@ -47,9 +47,8 @@
  *
  * @desc A singly linked list.
  *
- * @property _head {Nod} The Node object at the head of the list.
+ * @property _head {Node} The Node object at the head of the list.
  * @property _length {Number} The number of linked Node objects.
- * @property _currentNode {Node} The current referenced Node.
  *
  * @class {object} A singly linked list.
  * @this sList
@@ -60,11 +59,12 @@ function sList () {
     
     this._head = null;
     this._length = 0;
-    this._currentNode = null;
 }
 
 /**
  * @author Anthony Pizzimenti
+ *
+ * @desc Adds a new Node to the head of the current sList.
  *
  * @param value {*} Value to be assigned to the new Node.
  *
@@ -85,17 +85,17 @@ sList.prototype.addToTail = function (value) {
         
     }
     
-    while (currentNode.next) {
-        currentNode = currentNode.next;
-    }
-    
+    currentNode = this.retrieve(this._length - 1);
     currentNode.next = node;
+    
     this._length++;
     return node;
 };
 
 /**
  * @author Anthony Pizzimenti
+ *
+ * @desc Adds a new Node to the tail of the current sList.
  *
  * @param value {*} Value to be assigned to the new Node.
  *
@@ -118,10 +118,6 @@ sList.prototype.addToHead = function (value) {
     node.next = currentNode;
     this._head = node;
     
-    while (currentNode.next) {
-        currentNode = currentNode.next;
-    }
-    
     this._length++;
     return node;
 };
@@ -129,7 +125,7 @@ sList.prototype.addToHead = function (value) {
 /**
  * @author Anthony Pizzimenti
  *
- * @desc Adds a Node with value &lt;code>value&lt;/code> at the position &lt;code>position&lt;/code>.
+ * @desc Adds a new Node at the provided position.
  *
  * @param value {*} Value to be assigned to the new Node.
  * @param position {Number} Position in the linked list.
@@ -150,28 +146,14 @@ sList.prototype.add = function (value, position) {
     }
     
     var node = new Node(value),
-        currentNode = this._head,
-        lastNode,
-        nextNode,
-        i = 0;
-    
-    while (true) {
-        
-        if (i === position - 1) {
-            lastNode = currentNode;
-        } else if (i === position) {
-            nextNode = currentNode;
-            break;
-        }
-        
-        i++;
-        currentNode = currentNode.next;
-    }
+        lastNode = this.retrieve(position - 1),
+        nextNode = this.retrieve(position + 1);
     
     this._length++;
     
     lastNode.next = node;
     node.next = nextNode;
+    
     return node;
 };
 
@@ -192,7 +174,7 @@ sList.prototype.retrieve = function (position) {
     var currentNode = this._head,
         i = 0;
     
-    if (position > this._length) {
+    if (position > this._length || position &lt; 0) {
         throw new Error("Index out of range.");
     }
     
@@ -207,7 +189,7 @@ sList.prototype.retrieve = function (position) {
 /**
  * @author Anthony Pizzimenti
  *
- * @desc Removes the Node from the specified position.
+ * @desc Removes the Node at the specified position.
  *
  * @param position {Number} Position from which the Node will be removed.
  *
@@ -219,29 +201,16 @@ sList.prototype.remove = function (position) {
     var currentNode = this._head,
         remNode,
         lastNode,
-        nextNode,
-        i = 0;
+        nextNode;
     
     if (position > this._length) {
         throw new Error("Index out of range.");
     }
     
-    if (position !== 0 || position !== this._length - 1) {
+    if (position > 0 &amp;&amp; position &lt; this._length - 1) {
     
-        while (i &lt; this._length) {
-        
-            if (i === position - 1) {
-                lastNode = currentNode;
-            } else if (i === position) {
-                remNode = currentNode;
-            } else if (i === position + 1) {
-                nextNode = currentNode;
-                break;
-            }
-        
-            currentNode = currentNode.next;
-            i++;
-        }
+        lastNode = this.retrieve(position - 1);
+        nextNode = this.retrieve(position + 1);
     
         remNode = null;
         lastNode.next = nextNode;
@@ -253,19 +222,36 @@ sList.prototype.remove = function (position) {
         
     } else if (position === this._length - 1) {
         
-        while (i &lt; this._length) {
-            
-            currentNode = currentNode.next;
-            
-            if (i === position) {
-                currentNode.next = null;
-            }
-            
-            i++;
-        }
+        currentNode = this.retrieve(position - 1);
+        currentNode.next = null;
     }
     
     this._length--;
+};
+
+/**
+ * @author Anthony Pizzimenti
+ *
+ * @desc Transforms the linked list into an array.
+ *
+ * @this sList
+ *
+ * @returns {Array}
+ */
+
+sList.prototype.toArray = function () {
+    
+    var a = [],
+        node = this._head,
+        i = 0;
+    
+    while (i &lt; this._length) {
+        a.push(node.value);
+        node = node.next;
+        i++;
+    }
+    
+    return a;
 };
 </code></pre>
         </article>
@@ -279,7 +265,7 @@ sList.prototype.remove = function (position) {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Sep 02 2016 23:33:17 GMT-0500 (CDT) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Sep 03 2016 01:20:41 GMT-0500 (CDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
