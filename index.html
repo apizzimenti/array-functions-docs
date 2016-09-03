@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="dList.html">dList</a><ul class='methods'><li data-type='method'><a href="dList.html#add">add</a></li><li data-type='method'><a href="dList.html#addToHead">addToHead</a></li><li data-type='method'><a href="dList.html#addToTail">addToTail</a></li><li data-type='method'><a href="dList.html#remove">remove</a></li><li data-type='method'><a href="dList.html#retrieve">retrieve</a></li><li data-type='method'><a href="dList.html#toArray">toArray</a></li></ul></li><li><a href="f.html">f</a><ul class='methods'><li data-type='method'><a href="f.html#.containsBlank">containsBlank</a></li><li data-type='method'><a href="f.html#.dList">dList</a></li><li data-type='method'><a href="f.html#.groupBy">groupBy</a></li><li data-type='method'><a href="f.html#.hasType">hasType</a></li><li data-type='method'><a href="f.html#.removeIndex">removeIndex</a></li><li data-type='method'><a href="f.html#.removeValue">removeValue</a></li><li data-type='method'><a href="f.html#.sList">sList</a></li></ul></li><li><a href="Node.html">Node</a></li><li><a href="sList.html">sList</a><ul class='methods'><li data-type='method'><a href="sList.html#add">add</a></li><li data-type='method'><a href="sList.html#addToHead">addToHead</a></li><li data-type='method'><a href="sList.html#addToTail">addToTail</a></li><li data-type='method'><a href="sList.html#remove">remove</a></li><li data-type='method'><a href="sList.html#retrieve">retrieve</a></li><li data-type='method'><a href="sList.html#toArray">toArray</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#_partition">_partition</a></li><li><a href="global.html#_swap">_swap</a></li><li><a href="global.html#quicksort">quicksort</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="dList.html">dList</a><ul class='methods'><li data-type='method'><a href="dList.html#add">add</a></li><li data-type='method'><a href="dList.html#addToHead">addToHead</a></li><li data-type='method'><a href="dList.html#addToTail">addToTail</a></li><li data-type='method'><a href="dList.html#remove">remove</a></li><li data-type='method'><a href="dList.html#retrieve">retrieve</a></li><li data-type='method'><a href="dList.html#toArray">toArray</a></li></ul></li><li><a href="f.html">f</a><ul class='methods'><li data-type='method'><a href="f.html#.containsBlank">containsBlank</a></li><li data-type='method'><a href="f.html#.dList">dList</a></li><li data-type='method'><a href="f.html#.group">group</a></li><li data-type='method'><a href="f.html#.groupByValue">groupByValue</a></li><li data-type='method'><a href="f.html#.hasType">hasType</a></li><li data-type='method'><a href="f.html#.removeIndex">removeIndex</a></li><li data-type='method'><a href="f.html#.removeValue">removeValue</a></li><li data-type='method'><a href="f.html#.sList">sList</a></li></ul></li><li><a href="Node.html">Node</a></li><li><a href="sList.html">sList</a><ul class='methods'><li data-type='method'><a href="sList.html#add">add</a></li><li data-type='method'><a href="sList.html#addToHead">addToHead</a></li><li data-type='method'><a href="sList.html#addToTail">addToTail</a></li><li data-type='method'><a href="sList.html#remove">remove</a></li><li data-type='method'><a href="sList.html#retrieve">retrieve</a></li><li data-type='method'><a href="sList.html#toArray">toArray</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#_partition">_partition</a></li><li><a href="global.html#_swap">_swap</a></li><li><a href="global.html#quicksort">quicksort</a></li></ul>
 </nav>
 
 <div id="main">
@@ -47,13 +47,16 @@
 
 
     <section class="readme">
-        <article><h2>da_funk</h2><p>This package is a collection of useful array functions not provided in the current version of javascript.</p>
-<h3>installation</h3><p>node: <code>$ [sudo] npm install da_funk</code></p>
-<p>bower: <code>$ bower install da_funk</code></p>
-<h3>easy usage</h3><p>All that's required to use this package is:</p>
-<h4>node:</h4><p><code>require('da_funk')</code></p>
-<p>And you're all good. No variables, no namespace, just <code>require</code> it and you're set.</p>
-<h4>bower:</h4><p>With bower, it's even simpler: just start using it.</p></article>
+        <article><h2>Installation</h2><p>This package is accessible from bower as well as this repository. There are two installation methods:</p>
+<p><code>$ bower install da_funk [--save[-dev]]</code></p>
+<p>or </p>
+<p><code>$ git clone https://github.com/apizzimenti/funk.git</code></p>
+<h2>Usage</h2><p>All of <code>f</code>'s methods are static. This means that there is no need for a new instance of <code>f</code> (unless you really want to).</p>
+<pre class="prettyprint source"><code>// ex.js
+
+var a = [1, 2, 3, 4, 5, 6];
+f.removeValue(a, 2);</code></pre><h2>Pull Requests/Issues</h2><p>Use the standard procedure for pull requests against this package. I'll take a look at any issues I get as quickly as
+I can :)</p></article>
     </section>
 
 
@@ -66,7 +69,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Sep 03 2016 12:21:56 GMT-0500 (CDT) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Sep 03 2016 17:09:48 GMT-0500 (CDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="dList.html">dList</a><ul class='methods'><li data-type='method'><a href="dList.html#add">add</a></li><li data-type='method'><a href="dList.html#addToHead">addToHead</a></li><li data-type='method'><a href="dList.html#addToTail">addToTail</a></li><li data-type='method'><a href="dList.html#remove">remove</a></li><li data-type='method'><a href="dList.html#retrieve">retrieve</a></li><li data-type='method'><a href="dList.html#toArray">toArray</a></li></ul></li><li><a href="f.html">f</a><ul class='methods'><li data-type='method'><a href="f.html#.containsBlank">containsBlank</a></li><li data-type='method'><a href="f.html#.dList">dList</a></li><li data-type='method'><a href="f.html#.groupBy">groupBy</a></li><li data-type='method'><a href="f.html#.hasType">hasType</a></li><li data-type='method'><a href="f.html#.removeIndex">removeIndex</a></li><li data-type='method'><a href="f.html#.removeValue">removeValue</a></li><li data-type='method'><a href="f.html#.sList">sList</a></li></ul></li><li><a href="Node.html">Node</a></li><li><a href="sList.html">sList</a><ul class='methods'><li data-type='method'><a href="sList.html#add">add</a></li><li data-type='method'><a href="sList.html#addToHead">addToHead</a></li><li data-type='method'><a href="sList.html#addToTail">addToTail</a></li><li data-type='method'><a href="sList.html#remove">remove</a></li><li data-type='method'><a href="sList.html#retrieve">retrieve</a></li><li data-type='method'><a href="sList.html#toArray">toArray</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#_partition">_partition</a></li><li><a href="global.html#_swap">_swap</a></li><li><a href="global.html#quicksort">quicksort</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="dList.html">dList</a><ul class='methods'><li data-type='method'><a href="dList.html#add">add</a></li><li data-type='method'><a href="dList.html#addToHead">addToHead</a></li><li data-type='method'><a href="dList.html#addToTail">addToTail</a></li><li data-type='method'><a href="dList.html#remove">remove</a></li><li data-type='method'><a href="dList.html#retrieve">retrieve</a></li><li data-type='method'><a href="dList.html#toArray">toArray</a></li></ul></li><li><a href="f.html">f</a><ul class='methods'><li data-type='method'><a href="f.html#.containsBlank">containsBlank</a></li><li data-type='method'><a href="f.html#.dList">dList</a></li><li data-type='method'><a href="f.html#.group">group</a></li><li data-type='method'><a href="f.html#.groupByValue">groupByValue</a></li><li data-type='method'><a href="f.html#.hasType">hasType</a></li><li data-type='method'><a href="f.html#.removeIndex">removeIndex</a></li><li data-type='method'><a href="f.html#.removeValue">removeValue</a></li><li data-type='method'><a href="f.html#.sList">sList</a></li></ul></li><li><a href="Node.html">Node</a></li><li><a href="sList.html">sList</a><ul class='methods'><li data-type='method'><a href="sList.html#add">add</a></li><li data-type='method'><a href="sList.html#addToHead">addToHead</a></li><li data-type='method'><a href="sList.html#addToTail">addToTail</a></li><li data-type='method'><a href="sList.html#remove">remove</a></li><li data-type='method'><a href="sList.html#retrieve">retrieve</a></li><li data-type='method'><a href="sList.html#toArray">toArray</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#_partition">_partition</a></li><li><a href="global.html#_swap">_swap</a></li><li><a href="global.html#quicksort">quicksort</a></li></ul>
 </nav>
 
 <div id="main">
@@ -560,7 +560,7 @@ use f.&lt;method&gt; without instantiation.
 
     
 
-    <h4 class="name" id=".groupBy"><span class="type-signature">(static) </span>groupBy<span class="signature">(a, step)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id=".group"><span class="type-signature">(static) </span>group<span class="signature">(a, step)</span><span class="type-signature"> &rarr; {Array}</span></h4>
 
     
 
@@ -693,7 +693,7 @@ use f.&lt;method&gt; without instantiation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions_groupBy.js.html">functions/groupBy.js</a>, <a href="functions_groupBy.js.html#line27">line 27</a>
+        <a href="functions_group.js.html">functions/group.js</a>, <a href="functions_group.js.html#line27">line 27</a>
     </li></ul></dd>
     
 
@@ -745,6 +745,163 @@ f.groupByStep(a, 3)
 var b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     c = f.groupByStep(b, 2)
 // [ [1, 2], [3, 4], [5, 6], [7, 8], [9, 10] ]</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".groupByValue"><span class="type-signature">(static) </span>groupByValue<span class="signature">(a)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Sorts the elements of the array and groups them in place. Does not apply typechecking, so values will be
+coerced.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array to be grouped.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimeti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="functions_groupByValue.js.html">functions/groupByValue.js</a>, <a href="functions_groupByValue.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -1599,7 +1756,7 @@ var c = [1, 2, 3, 4, 5],
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Sep 03 2016 12:21:56 GMT-0500 (CDT) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Sep 03 2016 17:09:48 GMT-0500 (CDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
