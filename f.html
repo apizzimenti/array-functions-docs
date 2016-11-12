@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="dList.html">dList</a><ul class='methods'><li data-type='method'><a href="dList.html#add">add</a></li><li data-type='method'><a href="dList.html#addToHead">addToHead</a></li><li data-type='method'><a href="dList.html#addToTail">addToTail</a></li><li data-type='method'><a href="dList.html#remove">remove</a></li><li data-type='method'><a href="dList.html#retrieve">retrieve</a></li><li data-type='method'><a href="dList.html#toArray">toArray</a></li></ul></li><li><a href="f.html">f</a><ul class='methods'><li data-type='method'><a href="f.html#.containsBlank">containsBlank</a></li><li data-type='method'><a href="f.html#.dList">dList</a></li><li data-type='method'><a href="f.html#.group">group</a></li><li data-type='method'><a href="f.html#.groupByValue">groupByValue</a></li><li data-type='method'><a href="f.html#.hasType">hasType</a></li><li data-type='method'><a href="f.html#.removeIndex">removeIndex</a></li><li data-type='method'><a href="f.html#.removeValue">removeValue</a></li><li data-type='method'><a href="f.html#.sList">sList</a></li></ul></li><li><a href="Node.html">Node</a></li><li><a href="sList.html">sList</a><ul class='methods'><li data-type='method'><a href="sList.html#add">add</a></li><li data-type='method'><a href="sList.html#addToHead">addToHead</a></li><li data-type='method'><a href="sList.html#addToTail">addToTail</a></li><li data-type='method'><a href="sList.html#remove">remove</a></li><li data-type='method'><a href="sList.html#retrieve">retrieve</a></li><li data-type='method'><a href="sList.html#toArray">toArray</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#_partition">_partition</a></li><li><a href="global.html#_swap">_swap</a></li><li><a href="global.html#quicksort">quicksort</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="DoublyLinkedList.html">DoublyLinkedList</a><ul class='methods'><li data-type='method'><a href="DoublyLinkedList.html#add">add</a></li><li data-type='method'><a href="DoublyLinkedList.html#addToHead">addToHead</a></li><li data-type='method'><a href="DoublyLinkedList.html#addToTail">addToTail</a></li><li data-type='method'><a href="DoublyLinkedList.html#pop">pop</a></li><li data-type='method'><a href="DoublyLinkedList.html#remove">remove</a></li><li data-type='method'><a href="DoublyLinkedList.html#toArray">toArray</a></li></ul></li><li><a href="f.html">f</a><ul class='methods'><li data-type='method'><a href="f.html#.clean">clean</a></li><li data-type='method'><a href="f.html#.containsBlank">containsBlank</a></li><li data-type='method'><a href="f.html#.DoublyLinkedList">DoublyLinkedList</a></li><li data-type='method'><a href="f.html#.equalWithCheck">equalWithCheck</a></li><li data-type='method'><a href="f.html#.group">group</a></li><li data-type='method'><a href="f.html#.groupByValue">groupByValue</a></li><li data-type='method'><a href="f.html#.hasType">hasType</a></li><li data-type='method'><a href="f.html#.LinkedList">LinkedList</a></li><li data-type='method'><a href="f.html#.removeIndex">removeIndex</a></li><li data-type='method'><a href="f.html#.removeValue">removeValue</a></li></ul></li><li><a href="LinkedList.html">LinkedList</a><ul class='methods'><li data-type='method'><a href="LinkedList.html#insert">insert</a></li><li data-type='method'><a href="LinkedList.html#pop">pop</a></li><li data-type='method'><a href="LinkedList.html#push">push</a></li><li data-type='method'><a href="LinkedList.html#remove">remove</a></li><li data-type='method'><a href="LinkedList.html#toArray">toArray</a></li><li data-type='method'><a href="LinkedList.html#unshift">unshift</a></li></ul></li><li><a href="Node.html">Node</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_partition">_partition</a></li><li><a href="global.html#_swap">_swap</a></li><li><a href="global.html#quicksort">quicksort</a></li></ul>
 </nav>
 
 <div id="main">
@@ -238,6 +238,199 @@ use f.&lt;method&gt; without instantiation.
 
     
 
+    <h4 class="name" id=".clean"><span class="type-signature">(static) </span>clean<span class="signature">(array, check)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Removes all duplicates from the specified array.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="f.html">f</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array to be cleaned.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>check</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Strict types with comparisons?</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="functions_methods_clean.js.html">functions/methods/clean.js</a>, <a href="functions_methods_clean.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var a = [1, 2, 3, 4, 5, "2", "3"];
+f.clean(a)
+// a = [1, "2", "3", 4, 5]
+
+var b = [1, 2, 3, 4, 5, "2", "3"];
+f.clean(b, true);
+// b = [1, "2", 2, 3, "3", 4, 5]</code></pre>
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id=".containsBlank"><span class="type-signature">(static) </span>containsBlank<span class="signature">(a)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
 
     
@@ -348,7 +541,7 @@ use f.&lt;method&gt; without instantiation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions_containsBlank.js.html">functions/containsBlank.js</a>, <a href="functions_containsBlank.js.html#line17">line 17</a>
+        <a href="functions_methods_containsBlank.js.html">functions/methods/containsBlank.js</a>, <a href="functions_methods_containsBlank.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -401,7 +594,7 @@ use f.&lt;method&gt; without instantiation.
 
     
 
-    <h4 class="name" id=".dList"><span class="type-signature">(static) </span>dList<span class="signature">(a)</span><span class="type-signature"> &rarr; {<a href="dList.html">dList</a>}</span></h4>
+    <h4 class="name" id=".DoublyLinkedList"><span class="type-signature">(static) </span>DoublyLinkedList<span class="signature">(a)</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
 
     
 
@@ -511,7 +704,7 @@ use f.&lt;method&gt; without instantiation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions_dList.js.html">functions/dList.js</a>, <a href="functions_dList.js.html#line17">line 17</a>
+        <a href="functions_objectCreators_DoublyLinkedList.js.html">functions/objectCreators/DoublyLinkedList.js</a>, <a href="functions_objectCreators_DoublyLinkedList.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -545,7 +738,213 @@ use f.&lt;method&gt; without instantiation.
     </dt>
     <dd>
         
-<span class="param-type"><a href="dList.html">dList</a></span>
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".equalWithCheck"><span class="type-signature">(static) </span>equalWithCheck<span class="signature">(val_1, val_2, check)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Tests equality between two comparable objects with weak or strong typechecking. Mostly to be used
+internally.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="f.html">f</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>val_1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">First value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>val_2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Second value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>check</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Strong or weak typechecking?</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="functions_methods_equalWithCheck.js.html">functions/methods/equalWithCheck.js</a>, <a href="functions_methods_equalWithCheck.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
 
 
     </dd>
@@ -693,7 +1092,7 @@ use f.&lt;method&gt; without instantiation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions_group.js.html">functions/group.js</a>, <a href="functions_group.js.html#line27">line 27</a>
+        <a href="functions_methods_group.js.html">functions/methods/group.js</a>, <a href="functions_methods_group.js.html#line27">line 27</a>
     </li></ul></dd>
     
 
@@ -861,7 +1260,7 @@ coerced.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions_groupByValue.js.html">functions/groupByValue.js</a>, <a href="functions_groupByValue.js.html#line16">line 16</a>
+        <a href="functions_methods_groupByValue.js.html">functions/methods/groupByValue.js</a>, <a href="functions_methods_groupByValue.js.html#line18">line 18</a>
     </li></ul></dd>
     
 
@@ -869,6 +1268,13 @@ coerced.
 
     
 
+    
+    <dt class="tag-todo">To Do:</dt>
+    <dd class="tag-todo">
+        <ul>
+            <li>implement in O(n) complexity with a while loop</li>
+        </ul>
+    </dd>
     
 </dl>
 
@@ -1110,7 +1516,7 @@ coerced.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions_hasType.js.html">functions/hasType.js</a>, <a href="functions_hasType.js.html#line19">line 19</a>
+        <a href="functions_methods_hasType.js.html">functions/methods/hasType.js</a>, <a href="functions_methods_hasType.js.html#line19">line 19</a>
     </li></ul></dd>
     
 
@@ -1145,6 +1551,165 @@ coerced.
     <dd>
         
 <span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".LinkedList"><span class="type-signature">(static) </span>LinkedList<span class="signature">(a)</span><span class="type-signature"> &rarr; {<a href="LinkedList.html">LinkedList</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Converts an array into a singly linked list.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="f.html">f</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array to be converted into a singly linked list.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="functions_objectCreators_LinkedList.js.html">functions/objectCreators/LinkedList.js</a>, <a href="functions_objectCreators_LinkedList.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="LinkedList.html">LinkedList</a></span>
 
 
     </dd>
@@ -1295,7 +1860,7 @@ coerced.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions_removeIndex.js.html">functions/removeIndex.js</a>, <a href="functions_removeIndex.js.html#line34">line 34</a>
+        <a href="functions_methods_removeIndex.js.html">functions/methods/removeIndex.js</a>, <a href="functions_methods_removeIndex.js.html#line34">line 34</a>
     </li></ul></dd>
     
 
@@ -1508,7 +2073,7 @@ var c = [1, 2, 3, 4, 5],
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions_removeValue.js.html">functions/removeValue.js</a>, <a href="functions_removeValue.js.html#line34">line 34</a>
+        <a href="functions_methods_removeValue.js.html">functions/methods/removeValue.js</a>, <a href="functions_methods_removeValue.js.html#line34">line 34</a>
     </li></ul></dd>
     
 
@@ -1580,165 +2145,6 @@ var c = [1, 2, 3, 4, 5],
 
 
         
-            
-
-    
-
-    <h4 class="name" id=".sList"><span class="type-signature">(static) </span>sList<span class="signature">(a)</span><span class="type-signature"> &rarr; {<a href="sList.html">sList</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Converts an array into a singly linked list.
-</div>
-
-
-
-
-
-
-
-    <h5>This:</h5>
-    <ul><li><a href="f.html">f</a></li></ul>
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>a</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Array to be converted into a singly linked list.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Anthony Pizzimenti</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions_sList.js.html">functions/sList.js</a>, <a href="functions_sList.js.html#line17">line 17</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="sList.html">sList</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
     
 
     
@@ -1756,7 +2162,7 @@ var c = [1, 2, 3, 4, 5],
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Sep 03 2016 17:11:44 GMT-0500 (CDT) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Nov 12 2016 14:04:27 GMT-0600 (CST) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

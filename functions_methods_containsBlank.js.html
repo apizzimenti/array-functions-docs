@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>structures/quicksort.js - Documentation</title>
+    <title>functions/methods/containsBlank.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -28,7 +28,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">structures/quicksort.js</h1>
+    <h1 class="page-title">functions/methods/containsBlank.js</h1>
     
 
     
@@ -39,102 +39,40 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Created by apizzimenti on 4/4/16.
+ * Created by apizzimenti on 9/2/16.
  */
 
 /**
  * @author Anthony Pizzimenti
  *
- * @desc compartmentalized swap method for _quicksort
+ * @desc Intakes the provided array, sorts it, and checks its end indices for blank, undefined, or null members.
  *
- * @param array {Array} array to have values swapped
- * @param first {Number} index of lower value
- * @param second {Number} index of higher value
+ * @param a {Array} Array to be searched.
+ *
+ * @returns {boolean} Does the array contain any blank, undefined, or null members?
+ *
+ * @this f
  */
 
-function _swap(array, first, second) {
-    var temp = array[first];
-    array[first] = array[second];
-    array[second] = temp;
-}
-
-/**
- * @author Anthony Pizzimenti
- *
- * @desc sorts partitions of inputted array
- * @param array {Array} array (or partition) to be sorted
- * @param l {Number} lower index
- * @param r {Number} upper index
- *
- * @returns {Number}
- */
-
-function _partition(array, l, r) {
-
-    var piv = array[Math.floor((l + r) / 2)],
-        i = l,
-        j = r;
-
-    while (i &lt;= j) {
-
-        while (array[i] &lt; piv) {
-            i++;
-        }
-
-        while (array[j] > piv) {
-            j--;
-        }
-
-        if (i &lt;= j) {
-            _swap(array, i, j);
-            i++;
-            j--;
-        }
-    }
-
-    return i;
-
-}
-
-
-/**
- * @author Anthony Pizzimenti
- *
- * @desc an implementation of quicksort used in removeIndex() to sort the array of indices
- *
- * @see removeIndex()
- *
- * @param array {Array} array to be sorted
- * @param l {Number} leftmost index in current sort range
- * @param r {Number} rightmost index in current sort range
- *
- * @returns {Array}
- */
-
-function quicksort(array, l, r) {
+f.containsBlank = function (a) {
     
-    if (r == undefined || l == undefined) {
-        console.warn("Missing one or both sort boundaries.");
-    }
-
-    var index;
-
-    if (array.length > 1) {
-
-        index = _partition(array, l, r);
-
-        if (l &lt; index - 1) {
-            quicksort(array, l, index - 1);
-        }
-
-        if (index &lt; r) {
-            quicksort(array, index, r);
-        }
-    }
-
-    return array;
+    this.throwError(a);
+    this.lastArray = a.slice();
     
-}
+    var blank = false;
+    
+    if (a.length &lt; 23) {
+        a.sort();
+    } else {
+        a = quicksort(a, 0, a.length - 1);
+    }
+    
+    if (a[0] === "" || a[a.length - 1] === null || a[a.length - 1] === undefined) {
+        blank = true;
+    }
+    
+    return blank;
+};
 </code></pre>
         </article>
     </section>
