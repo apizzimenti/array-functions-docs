@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>functions/methods/removeValue.js - Documentation</title>
+    <title>functions/methods/flatten.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">functions/methods/removeValue.js</h1>
+    <h1 class="page-title">functions/methods/flatten.js</h1>
     
 
     
@@ -40,80 +40,44 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Created by apizzimenti on 5/8/16.
- */
-
-/**
- * @module methods
+    created by apizzimenti on 8/17/17.
  */
 
 var _throwError = require("./throwError");
 
 /**
  * @author Anthony Pizzimenti
- * @desc Deletes all specified value(s) in an array in place.
- * @param {Array} a Array to have value removed.
- * @param {number | Array} value Value or list of values to be deleted.
- * @throws ReferenceError
- * @returns {Array} Array with specified value(s) removed.
- *
- * @example
- * var a = [1, 2, 3, 4, 5];
- * f.removeValue(a, 3);
- * // [ 1, 2, 4, 5 ]
- *
- * var b = [1, 2, 3, 4, 5];
- * f.removeValue(b, [2, 3, 5]);
- * // [ 1, 4 ]
- *
- * var c = [1, 2, 3, 4, 5],
- *     d = f.removeValue(c, 3);
- * // [ 1, 2, 4, 5 ]
- *
+ * @desc Flattens an array containing other arrays.
+ * @param {Array} array Array to be flattened.
+ * @param {Array} [parent=null] Sub-array's parent to be modified.
+ * @param {number} [marker=null] Location to start modification of parent.
+ * @returns {Array} Flattened array.
  */
-function removeValue (a, value) {
-    
-    _throwError(a);
-    this.lastArray = a.slice();
-    
-    var vals = Array.isArray(value) ? value : [value],
-        indices = [],
-        i, j, k, l, amount_gone, index, length;
+function flatten (array, parent, marker) {
+    _throwError(array);
 
-    for (i = 0; i &lt; vals.length; i++) {
-        for (j = 0; j &lt; a.length; j++) {
-            if (vals[i] === a[j]) {
-                indices.push(j);
-            }
+    var i = 0;
+
+    while (i &lt; array.length) {
+        console.log(array);
+
+        if (Array.isArray(array[i])) {
+            array.length += array[i].length - 1;
+            flatten(array[i].slice(), array, i);
         }
+
+        if (parent) {
+            parent[marker] = array[i];
+            marker++;
+        }
+
+        i++;
     }
 
-    if (indices.length === 0) {
-
-        throw new ReferenceError();
-
-    } else {
-
-        amount_gone = 0;
-
-        for (k = 0; k &lt; indices.length; k++) {
-            index = indices[k] - amount_gone;
-            length = a.length;
-
-            for (l = index; l &lt; length; l++) {
-                a[l] = a[l + 1];
-            }
-
-            delete a[length - 1];
-            a.length = length - 1;
-            amount_gone++;
-        }
-    }
-
-    return a;
+    return array;
 }
 
-module.exports = removeValue;
+module.exports = flatten;
 </code></pre>
         </article>
     </section>
