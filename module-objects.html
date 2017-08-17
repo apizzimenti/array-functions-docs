@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>f - Documentation</title>
+    <title>objects - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">f</h1>
+    <h1 class="page-title">objects</h1>
     
 
     
@@ -41,9 +41,6 @@
 
 <header>
     
-        <h2>
-        f
-        </h2>
         
     
 </header>
@@ -52,101 +49,42 @@
     <div class="container-overview">
     
         
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
 <div class="section-method">
 
     
 
-    <h4 class="name" id="f"><span class="type-signature"></span>new f<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~instantiateDoublyLinkedList"><span class="type-signature">(inner) </span>instantiateDoublyLinkedList<span class="signature">(a)</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
 
     
 
 
 
 <div class="description">
-    Parent object for all funk methods. Each time a method is run, funk keeps a reference to the last array it was
-fed before it was modified. Constructing <code>f</code> (i.e. <code>new f()</code>) is not required. You can simply
-use f.&lt;method&gt; without instantiation.
+    Transforms the provided array to a doubly linked list.
 </div>
 
-
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>lastArray</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>Array</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Reference to the last array modified.</td>
-        </tr>
-
-        
-
-    
-
-        <tr>
-            
-                <td class="name"><code>throwError</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>function</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Typechecks parameters.</td>
-        </tr>
-
-        
-
-    
-    </tbody>
-</table>
 
 
 
@@ -187,7 +125,7 @@ use f.&lt;method&gt; without instantiation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line8">line 8</a>
+        <a href="functions_objects_DoublyLinkedList.js.html">functions/objects/DoublyLinkedList.js</a>, <a href="functions_objects_DoublyLinkedList.js.html#line18">line 18</a>
     </li></ul></dd>
     
 
@@ -206,6 +144,56 @@ use f.&lt;method&gt; without instantiation.
 
 
 
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Array</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Array to be transformed.
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -217,10 +205,234 @@ use f.&lt;method&gt; without instantiation.
 
 
 
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code><a href="DoublyLinkedList.html">DoublyLinkedList</a></code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    New doubly-linked list populated with items in the provided array.
+</div>
+
+    
+</div>
 
 
 
 </div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="~instantiateLinkedList"><span class="type-signature">(inner) </span>instantiateLinkedList<span class="signature">(a)</span><span class="type-signature"> &rarr; {<a href="LinkedList.html">LinkedList</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Converts an array into a singly linked list.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="functions_objects_LinkedList.js.html">functions/objects/LinkedList.js</a>, <a href="functions_objects_LinkedList.js.html#line18">line 18</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Array</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Array to be transformed.
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code><a href="LinkedList.html">LinkedList</a></code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    New linked list populated with items in the provided array.
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
     
     </div>
 
@@ -236,6 +448,344 @@ use f.&lt;method&gt; without instantiation.
 
     
 
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="~instantiateDoublyLinkedList"><span class="type-signature">(inner) </span>instantiateDoublyLinkedList<span class="signature">(a)</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Transforms the provided array to a doubly linked list.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="functions_objects_DoublyLinkedList.js.html">functions/objects/DoublyLinkedList.js</a>, <a href="functions_objects_DoublyLinkedList.js.html#line18">line 18</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Array</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Array to be transformed.
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code><a href="DoublyLinkedList.html">DoublyLinkedList</a></code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    New doubly-linked list populated with items in the provided array.
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="~instantiateLinkedList"><span class="type-signature">(inner) </span>instantiateLinkedList<span class="signature">(a)</span><span class="type-signature"> &rarr; {<a href="LinkedList.html">LinkedList</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Converts an array into a singly linked list.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="functions_objects_LinkedList.js.html">functions/objects/LinkedList.js</a>, <a href="functions_objects_LinkedList.js.html#line18">line 18</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Array</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Array to be transformed.
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code><a href="LinkedList.html">LinkedList</a></code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    New linked list populated with items in the provided array.
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
     
 
     
