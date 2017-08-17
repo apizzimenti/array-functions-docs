@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>functions/methods/clean.js - Documentation</title>
+    <title>functions/objects/LinkedList.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">functions/methods/clean.js</h1>
+    <h1 class="page-title">functions/objects/LinkedList.js</h1>
     
 
     
@@ -40,56 +40,37 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Created by apizzimenti on 11/12/16.
+ * Created by apizzimenti on 9/2/16.
  */
 
-/**
- * @module methods
- */
-
-var quicksort = require("../../structures").quicksort,
-    equalWithCheck = require("./equalWithCheck"),
-    removeIndex = require("./removeIndex");
+var s = require("../../structures"),
+    LinkedList = s.LinkedList;
 
 /**
  * @author Anthony Pizzimenti
- * @desc Removes all duplicates from the specified array.
- * @param {Array} array Array to be cleaned
- * @param {boolean} check Strict types with comparisons?
- * @returns {Array} Cleaned array.
- *
- * @example
- * var a = [1, 2, 3, 4, 5, "2", "3"];
- * f.clean(a)
- * // a = [1, "2", "3", 4, 5]
- *
- * var b = [1, 2, 3, 4, 5, "2", "3"];
- * f.clean(b, true);
- * // b = [1, "2", 2, 3, "3", 4, 5]
+ * @desc Converts an array into a singly linked list.
+ * @param {Array} a  Array to be transformed.
+ * @returns {LinkedList} New linked list populated with items in the provided array.
+ * @private
  */
-function clean (array, check) {
+function instantiateLinkedList (a) {
     
-    // sort array so index checking is easier
-    quicksort(array, 0, array.length - 1);
+    var s = new LinkedList(),
+        i;
     
-    // initialize indexer
-    var i = 0;
-    
-    while (i &lt; array.length) {
+    for (i = 0; i &lt; a.length; i++) {
         
-        if (equalWithCheck(array[i], array[i + 1], check)) {
-            // if adjacent indices are the same, remove next element and don't increase index
-            removeIndex(array, i + 1);
-            continue;
+        if (i === 0) {
+            s.push(a[i]);
+        } else {
+            s.push(a[i]);
         }
-        
-        i++;
     }
     
-    return array;
+    return s;
 }
 
-module.exports = clean;
+module.exports = instantiateLinkedList;
 </code></pre>
         </article>
     </section>
