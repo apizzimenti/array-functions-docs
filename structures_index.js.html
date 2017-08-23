@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>structures/Node.js - Documentation</title>
+    <title>structures/index.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">structures/Node.js</h1>
+    <h1 class="page-title">structures/index.js</h1>
     
 
     
@@ -40,25 +40,20 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Created by apizzimenti on 9/2/16.
+ * @module objects
  */
 
-/**
- * @author Anthony Pizzimenti
- * @desc Node object contained in doubly- and linked lists.
- * @param {*} value Value of any type to be attributed to the node.
- * @property {*} value Value of this Node.
- * @property {Node} [previous=null] In a doubly linked list, this points to the previous node in the list.
- * @property {Node} [next=null] In both doubly and singly linked lists, this points to the next node in the list.
- * @constructor
- */
-function Node (value) {
-    this.value = value;
-    this.previous = null;
-    this.next = null;
-}
+var D = require("./DoublyLinkedList"),
+    L = require("./LinkedList"),
+    N = require("./Node"),
+    q = require("./quicksort");
 
-module.exports = Node;
+module.exports = {
+    DoublyLinkedList: D,
+    LinkedList: L,
+    Node: N,
+    quicksort: q
+};
 </code></pre>
         </article>
     </section>
