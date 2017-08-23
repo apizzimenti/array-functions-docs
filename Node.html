@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>functions/methods/removeValue.js - Documentation</title>
+    <title>Node - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,94 +29,338 @@
 
 <div id="main">
     
-    <h1 class="page-title">functions/methods/removeValue.js</h1>
+    <h1 class="page-title">Node</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Created by apizzimenti on 5/8/16.
- */
-
-/**
- * @memberof methods
- */
-
-var _throwError = require("./throwError");
-
-/**
- * @author Anthony Pizzimenti
- * @desc Deletes all specified value(s) in an array in place.
- * @param {Array} a Array to have value removed.
- * @param {number | Array} value Value or list of values to be deleted.
- * @throws ReferenceError
- * @returns {Array} Array with specified value(s) removed.
- *
- * @example
- * var a = [1, 2, 3, 4, 5];
- * f.removeValue(a, 3);
- * // [ 1, 2, 4, 5 ]
- *
- * var b = [1, 2, 3, 4, 5];
- * f.removeValue(b, [2, 3, 5]);
- * // [ 1, 4 ]
- *
- * var c = [1, 2, 3, 4, 5],
- *     d = f.removeValue(c, 3);
- * // [ 1, 2, 4, 5 ]
- *
- */
-function removeValue (a, value) {
+        <h2>
+        Node
+        </h2>
+        
     
-    _throwError(a);
-    this.lastArray = a.slice();
+</header>
+
+<article>
+    <div class="container-overview">
     
-    var vals = Array.isArray(value) ? value : [value],
-        indices = [],
-        i, j, k, l, amount_gone, index, length;
+        
+<div class="section-method">
 
-    for (i = 0; i &lt; vals.length; i++) {
-        for (j = 0; j &lt; a.length; j++) {
-            if (vals[i] === a[j]) {
-                indices.push(j);
-            }
-        }
-    }
+    
 
-    if (indices.length === 0) {
+    <h4 class="name" id="Node"><span class="type-signature"></span>new Node<span class="signature">(value)</span><span class="type-signature"></span></h4>
 
-        throw new ReferenceError();
+    
 
-    } else {
 
-        amount_gone = 0;
 
-        for (k = 0; k &lt; indices.length; k++) {
-            index = indices[k] - amount_gone;
-            length = a.length;
+<div class="description">
+    Node object contained in doubly- and linked lists.
+</div>
 
-            for (l = index; l &lt; length; l++) {
-                a[l] = a[l + 1];
-            }
 
-            delete a[length - 1];
-            a.length = length - 1;
-            amount_gone++;
-        }
-    }
 
-    return a;
-}
 
-module.exports = removeValue;
-</code></pre>
-        </article>
-    </section>
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>*</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Value of this Node.</td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>previous</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code><a href="Node.html">Node</a></code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last">In a doubly linked list, this points to the previous node in the list.</td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>next</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code><a href="Node.html">Node</a></code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last">In both doubly and singly linked lists, this points to the next node in the list.</td>
+        </tr>
+
+        
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="structures_Node.js.html">structures/Node.js</a>, <a href="structures_Node.js.html#line14">line 14</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>*</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Value of any type to be attributed to the node.
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
