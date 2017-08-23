@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>functions/methods/removeValue.js - Documentation</title>
+    <title>functions/methods/throwError.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">functions/methods/removeValue.js</h1>
+    <h1 class="page-title">functions/methods/throwError.js</h1>
     
 
     
@@ -39,68 +39,22 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Created by apizzimenti on 5/8/16.
- */
-
-/**
- * @memberof methods
- */
-
-var _throwError = require("./throwError");
-
+            <pre class="prettyprint source linenums"><code>
 /**
  * @author Anthony Pizzimenti
- * @desc Deletes all specified value(s) in an array in place.
- * @param {Array} a Array to have value removed.
- * @param {number | Array} value Value or list of values to be deleted.
- * @throws ReferenceError
- * @returns {Array} Array with specified value(s) removed.\
- * @memberof methods
+ * @description Typechecks the first parameter of a given function.
+ * @param {Array} a First parameter.
+ * @throws TypeError
+ * @returns {undefined}
+ * @private
  */
-function removeValue (a, value) {
-    
-    _throwError(a);
-    this.lastArray = a.slice();
-    
-    var vals = Array.isArray(value) ? value : [value],
-        indices = [],
-        i, j, k, l, amount_gone, index, length;
-
-    for (i = 0; i &lt; vals.length; i++) {
-        for (j = 0; j &lt; a.length; j++) {
-            if (vals[i] === a[j]) {
-                indices.push(j);
-            }
-        }
+function _throwError (a) {
+    if (!Array.isArray(a)) {
+        throw new TypeError("First parameter is not of type Array.");
     }
-
-    if (indices.length === 0) {
-
-        throw new ReferenceError();
-
-    } else {
-
-        amount_gone = 0;
-
-        for (k = 0; k &lt; indices.length; k++) {
-            index = indices[k] - amount_gone;
-            length = a.length;
-
-            for (l = index; l &lt; length; l++) {
-                a[l] = a[l + 1];
-            }
-
-            delete a[length - 1];
-            a.length = length - 1;
-            amount_gone++;
-        }
-    }
-
-    return a;
 }
 
-module.exports = removeValue;
+module.exports = _throwError;
 </code></pre>
         </article>
     </section>
