@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>structures/index.js - Documentation</title>
+    <title>functions/methods/throwError.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">structures/index.js</h1>
+    <h1 class="page-title">functions/methods/throwError.js</h1>
     
 
     
@@ -39,21 +39,21 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @namespace objects
+            <pre class="prettyprint source linenums"><code>
+/**
+ * @author Anthony Pizzimenti
+ * @description Typechecks the first parameter of a given function.
+ * @param {Array} a First parameter.
+ * @throws TypeError
+ * @returns {undefined}
  */
+function _throwError (a) {
+    if (!Array.isArray(a)) {
+        throw new TypeError("First parameter is not of type Array.");
+    }
+}
 
-var D = require("./DoublyLinkedList"),
-    L = require("./LinkedList"),
-    N = require("./Node"),
-    q = require("./quicksort");
-
-module.exports = {
-    DoublyLinkedList: D,
-    LinkedList: L,
-    Node: N,
-    quicksort: q
-};
+module.exports = _throwError;
 </code></pre>
         </article>
     </section>
