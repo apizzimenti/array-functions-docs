@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>functions/methods/groupByValue.js - Documentation</title>
+    <title>objects - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,84 +29,222 @@
 
 <div id="main">
     
-    <h1 class="page-title">functions/methods/groupByValue.js</h1>
+    <h1 class="page-title">objects</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Created by apizzimenti on 9/3/16.
- */
-
-/**
- * @memberof methods
- */
-
-var _throwError = require("./throwError"),
-    quicksort = require("../../structures").quicksort;
-
-/**
- * @author Anthony Pizzimeti
- * @desc Sorts the elements of the array and groups them in place. Does not apply typechecking, so values will be coerced.
- * @param {Array} a Array to be grouped.
- * @returns {Array} Array grouped by individual values.
- *
- * @todo implement in O(n) complexity with a while loop
- */
-function groupByValue (a) {
-
-    _throwError(a);
-
-    if (a.length > 23) {
-        a = quicksort(a, 0, a.length - 1);
-    } else {
-        a = a.sort();
-    }
-    
-    var i = 0,
-        j = 0,
-        refArray = [],
-        refIndex = 0;
-    
-    for (i = 0; i &lt; a.length; i++) {
+        <h2>
+        objects
+        </h2>
         
-        if (a[i] == a[i + 1]) {
-            refArray.push(a[i]);
-        } else {
-            refArray.push(a[i]);
-            a[refIndex] = refArray;
-            refIndex++;
-            
-            if (i == a.length - 2 &amp;&amp; refArray.length != 0) {
-                a[refIndex] = [a[i + 1]];
-                break;
-            }
-            
-            refArray = [];
-            
-        }
-    }
     
-    for (j = 0; j &lt; a.length; j++) {
-        
-        if (!Array.isArray(a[j])) {
-            delete a[j];
-            a.length--;
-        }
-    }
-    
-    return a;
-}
+</header>
 
-module.exports = groupByValue;
-</code></pre>
-        </article>
-    </section>
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="structures_index.js.html">structures/index.js</a>, <a href="structures_index.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id=".Node"><span class="type-signature">(static) </span>Node<span class="type-signature"></span></h4>
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="structures_LinkedList.js.html">structures/LinkedList.js</a>, <a href="structures_LinkedList.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id=".Node"><span class="type-signature">(static) </span>Node<span class="type-signature"></span></h4>
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="structures_DoublyLinkedList.js.html">structures/DoublyLinkedList.js</a>, <a href="structures_DoublyLinkedList.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+</div>
+
+        
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
